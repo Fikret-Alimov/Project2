@@ -1,7 +1,6 @@
 const chatMessages = document.getElementById('chat-messages');
 const userInput = document.getElementById('user-input');
 const sendButton = document.getElementById('send-button');
-
 let threadId = null; // To store the thread ID
 
 sendButton.addEventListener('click', sendMessage);
@@ -24,7 +23,18 @@ function sendMessage() {
 function addMessageToChat(sender, message) {
     const messageElement = document.createElement('div');
     messageElement.classList.add('message', `${sender}-message`);
-    messageElement.textContent = message;
+    
+    const iconElement = document.createElement('div');
+    iconElement.classList.add('message-icon', `${sender}-icon`);
+    iconElement.innerHTML = sender === 'user' ? '<i class="fas fa-user"></i>' : '<i class="fas fa-robot"></i>';
+    
+    const contentElement = document.createElement('div');
+    contentElement.classList.add('message-content');
+    contentElement.innerHTML = message; // Use innerHTML to support HTML content
+    
+    messageElement.appendChild(iconElement);
+    messageElement.appendChild(contentElement);
+    
     chatMessages.appendChild(messageElement);
     chatMessages.scrollTop = chatMessages.scrollHeight;
 }
