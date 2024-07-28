@@ -28,7 +28,7 @@ function addMessageToChat(sender, message) {
     iconElement.classList.add('message-icon', `${sender}-icon`);
     iconElement.innerHTML = sender === 'user' ? 
         '<img src="https://icons.veryicon.com/png/o/miscellaneous/youyinzhibo/guest.png" alt="User">' : 
-        '<img src="https://github.com/Fikret-Alimov/Project2/blob/main/images/Designer%20(1).png?raw=true" alt="Assistant">';
+        '<img src="https://raw.githubusercontent.com/Fikret-Alimov/Project2/main/images/Designer%20(1).png?token=GHSAT0AAAAAACVBQS5QEOKKO3ZJQQ363IWKZVF7EXQ" alt="Assistant" width="50" height="25"> alt="Assistant">';
     
     const contentElement = document.createElement('div');
     contentElement.classList.add('message-content');
