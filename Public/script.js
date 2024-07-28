@@ -23,6 +23,10 @@ function sendMessage() {
 function addMessageToChat(sender, message) {
     const messageElement = document.createElement('div');
     messageElement.classList.add('message', `${sender}-message`);
+
+    const contentElement = document.createElement('div');
+    contentElement.classList.add('message-content');
+    contentElement.innerHTML = formatMessage(message);
     
     const iconElement = document.createElement('div');
     iconElement.classList.add('message-icon', `${sender}-icon`);
@@ -43,18 +47,43 @@ function addMessageToChat(sender, message) {
 
 function showTypingIndicator() {
     const typingIndicator = document.createElement('div');
-    typingIndicator.classList.add('typing-indicator');
-    typingIndicator.innerHTML = '<span></span><span></span><span></span>';
+    typingIndicator.classList.add('message', 'assistant-message');
+    
+    const iconElement = document.createElement('div');
+    iconElement.classList.add('message-icon', 'assistant-icon');
+    iconElement.innerHTML = '<i class="fas fa-robot"></i>';
+    
+    const indicatorElement = document.createElement('div');
+    indicatorElement.classList.add('typing-indicator');
+    indicatorElement.innerHTML = '<span></span><span></span><span></span>';
+    
+    typingIndicator.appendChild(iconElement);
+    typingIndicator.appendChild(indicatorElement);
+    
     chatMessages.appendChild(typingIndicator);
     chatMessages.scrollTop = chatMessages.scrollHeight;
 }
 
 function removeTypingIndicator() {
-    const typingIndicator = document.querySelector('.typing-indicator');
-    if (typingIndicator) {
+    const typingIndicator = chatMessages.querySelector('.message:last-child');
+    if (typingIndicator && typingIndicator.querySelector('.typing-indicator')) {
         typingIndicator.remove();
     }
 }
+
+
+}
+function formatMessage(message) {
+    // Convert numbered lists to HTML
+    message = message.replace(/(\d+\.\s)([^\n]+)/g, '<li><strong>$1</strong>$2</li>');
+    if (message.includes('<li>')) {
+        message = '<ul>' + message + '</ul>';
+    }
+    message = message.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    
+    return message;
+}
+
 
 function sendToServer(message) {
     fetch('/message', {
