@@ -47,7 +47,7 @@ function showTypingIndicator() {
     
     const iconElement = document.createElement('div');
     iconElement.classList.add('message-icon', 'assistant-icon');
-    iconElement.innerHTML = '<img src="https://github.com/Fikret-Alimov/Project2/blob/main/images/Designer%20(1).png?raw=true" alt="Assistant">';
+    iconElement.innerHTML = 'https://static.wixstatic.com/media/ce04ae_efa6cfe958094b11902ad788ea8354ec~mv2.jpeg/v1/fill/w_578,h_578,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Designer%20(1).jpeg" alt="Assistant" width="50" height="25"> alt="Assistant">'';
     
     const indicatorElement = document.createElement('div');
     indicatorElement.classList.add('typing-indicator');
