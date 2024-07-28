@@ -28,7 +28,7 @@ function addMessageToChat(sender, message) {
     iconElement.classList.add('message-icon', `${sender}-icon`);
     iconElement.innerHTML = sender === 'user' ? 
         '<img src="https://icons.veryicon.com/png/o/miscellaneous/youyinzhibo/guest.png" alt="User">' : 
-        '<img src="https://static.wixstatic.com/media/ce04ae_efa6cfe958094b11902ad788ea8354ec~mv2.jpeg/v1/fill/w_578,h_578,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Designer%20(1).jpeg" alt="Assistant" width="50" height="25"> alt="Assistant">';
+        '<img src="https://github.com/Fikret-Alimov/Project2/blob/main/images/asst_logo.png?raw=true" alt="Assistant">';
     
     const contentElement = document.createElement('div');
     contentElement.classList.add('message-content');
@@ -47,7 +47,7 @@ function showTypingIndicator() {
     
     const iconElement = document.createElement('div');
     iconElement.classList.add('message-icon', 'assistant-icon');
-    iconElement.innerHTML = 'https://static.wixstatic.com/media/ce04ae_efa6cfe958094b11902ad788ea8354ec~mv2.jpeg/v1/fill/w_578,h_578,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Designer%20(1).jpeg" alt="Assistant" width="50" height="25"> alt="Assistant">'';
+    iconElement.innerHTML = '<img src="https://github.com/Fikret-Alimov/Project2/blob/main/images/asst_logo.png?raw=true" alt="Assistant">';
     
     const indicatorElement = document.createElement('div');
     indicatorElement.classList.add('typing-indicator');
@@ -102,4 +102,20 @@ function sendToServer(message) {
         removeTypingIndicator();
         addMessageToChat('assistant', 'Sorry, there was an error processing your request.');
     });
+}
+
+// Collapsible CV section
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
 }
