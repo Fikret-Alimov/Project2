@@ -6,14 +6,35 @@
     <title>Chat with AI Assistant</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="chat-container">
-        <div id="chat-messages"></div>
-        <div class="input-area">
-            <input type="text" id="user-input" placeholder="Type your message...">
-            <button id="send-button"><i class="fas fa-paper-plane"></i></button>
+    <div class="container">
+        <header>
+            <h1>Welcome to AI Assistant Chat</h1>
+            <p>This is a brief introduction to the AI assistant. You can ask questions and get helpful responses.</p>
+        </header>
+
+        <div class="chat-container">
+            <div id="chat-messages"></div>
+            <div class="input-area">
+                <input type="text" id="user-input" placeholder="Type your message...">
+                <button id="send-button"><i class="fas fa-paper-plane"></i></button>
+            </div>
         </div>
+
+        <div class="cv-section">
+            <h2>CV</h2>
+            <button class="collapsible">View CV</button>
+            <div class="content">
+                <iframe src="https://github.com/YourUsername/YourRepository/raw/main/YourCV.pdf" width="100%" height="500px"></iframe>
+            </div>
+        </div>
+
+        <footer>
+            <h2>Additional Information</h2>
+            <p>Here you can add any additional information or context about the AI assistant or the service provided.</p>
+        </footer>
     </div>
     <script src="script.js"></script>
 </body>
