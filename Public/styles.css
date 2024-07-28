@@ -73,12 +73,12 @@ body {
     font-size: 16px;
 }
 .user-icon {
-    background-color: #007bff;
-    color: white;
+    background-image: url('https://icons.veryicon.com/png/o/miscellaneous/youyinzhibo/guest.png');
+    background-size: cover;
 }
 .assistant-icon {
-    background-color: #28a745;
-    color: white;
+    background-image: url('https://github.com/Fikret-Alimov/Project2/blob/main/images/Designer%20(1).png?raw=true');
+    background-size: cover;
 }
 .message-content {
     flex-grow: 1;
