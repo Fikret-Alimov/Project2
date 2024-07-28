@@ -23,20 +23,16 @@ function sendMessage() {
 function addMessageToChat(sender, message) {
     const messageElement = document.createElement('div');
     messageElement.classList.add('message', `${sender}-message`);
-
-    const contentElement = document.createElement('div');
-    contentElement.classList.add('message-content');
-    contentElement.innerHTML = formatMessage(message);
     
     const iconElement = document.createElement('div');
     iconElement.classList.add('message-icon', `${sender}-icon`);
     iconElement.innerHTML = sender === 'user' ? 
-    '<img src="https://icons.veryicon.com/png/o/miscellaneous/youyinzhibo/guest.png" alt="User">' : 
-    '<img src="https://github.com/Fikret-Alimov/Project2/blob/main/images/Designer%20(1).png?raw=true" alt="Assistant">';
+        '<img src="https://icons.veryicon.com/png/o/miscellaneous/youyinzhibo/guest.png" alt="User">' : 
+        '<img src="https://github.com/Fikret-Alimov/Project2/blob/main/images/Designer%20(1).png?raw=true" alt="Assistant">';
     
     const contentElement = document.createElement('div');
     contentElement.classList.add('message-content');
-    contentElement.innerHTML = message; // Use innerHTML to support HTML content
+    contentElement.innerHTML = formatMessage(message);
     
     messageElement.appendChild(iconElement);
     messageElement.appendChild(contentElement);
@@ -51,7 +47,7 @@ function showTypingIndicator() {
     
     const iconElement = document.createElement('div');
     iconElement.classList.add('message-icon', 'assistant-icon');
-    iconElement.innerHTML = '<i class="fas fa-robot"></i>';
+    iconElement.innerHTML = '<img src="https://github.com/Fikret-Alimov/Project2/blob/main/images/Designer%20(1).png?raw=true" alt="Assistant">';
     
     const indicatorElement = document.createElement('div');
     indicatorElement.classList.add('typing-indicator');
@@ -71,19 +67,21 @@ function removeTypingIndicator() {
     }
 }
 
-
-}
 function formatMessage(message) {
     // Convert numbered lists to HTML
     message = message.replace(/(\d+\.\s)([^\n]+)/g, '<li><strong>$1</strong>$2</li>');
     if (message.includes('<li>')) {
         message = '<ul>' + message + '</ul>';
     }
+    
+    // Convert bold text
     message = message.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    
+    // Convert line breaks to <br> tags
+    message = message.replace(/\n/g, '<br>');
     
     return message;
 }
-
 
 function sendToServer(message) {
     fetch('/message', {
