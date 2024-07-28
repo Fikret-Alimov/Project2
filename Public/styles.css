@@ -82,6 +82,17 @@ body {
 }
 .message-content {
     flex-grow: 1;
+    
+}
+.message-content ul {
+    padding-left: 20px;
+    margin: 10px 0;
+}
+.message-content li {
+    margin-bottom: 10px;
+}
+.message-content strong {
+    font-weight: bold;
 }
 .typing-indicator {
     display: inline-block;
